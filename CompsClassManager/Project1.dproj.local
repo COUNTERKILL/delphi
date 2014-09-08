@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.780,E:\Programms\Delphi\CompsClassManager\Unit1.dfm=C:\Users\COUNTERKILL\Documents\RAD Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.866,E:\Programms\Delphi\CompsClassManager\Unit3.dfm=E:\Programms\Delphi\CompsClassManager\Unit2.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.866,E:\Programms\Delphi\CompsClassManager\Unit3.pas=E:\Programms\Delphi\CompsClassManager\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.292,=E:\Programms\Delphi\CompsClassManager\Unit3.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.780,E:\Programms\Delphi\CompsClassManager\Unit1.pas=C:\Users\COUNTERKILL\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.776,=E:\Programms\Delphi\CompsClassManager\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.484,E:\Programms\Delphi\CompsClassManager\Project1.dproj=C:\Users\COUNTERKILL\Documents\RAD Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.915,=C:\Users\COUNTERKILL\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.532,=E:\Programms\Delphi\CompsClassManager\Unit2.pas</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Model name="Project1" id="Project1" language="delphi">
+  <Diagram name="default" id="ID=6" metaclass="Namespace Diagram" file="default.txvpck.html">
+    <Property name="defaultDiagram">true</Property>
+    <DiagramReference id="ID=7" element="ID=4" metaclass="Namespace">
+      <Property name="Gradient color 1">255, 255, 255</Property>
+      <Property name="Color Area">Whole Shape</Property>
+      <Property name="Gradient color 2">255, 255, 255</Property>
+      <Property name="Gradient Mode">Vertical</Property>
+      <Property name="Gradient ON">False</Property>
+      <DiagramReference id="ID=12" element="ID=10" metaclass="Module" />
+    </DiagramReference>
+    <DiagramReference id="ID=8" element="ID=5" metaclass="Namespace">
+      <Property name="Gradient color 1">255, 255, 255</Property>
+      <Property name="Color Area">Whole Shape</Property>
+      <Property name="Gradient color 2">255, 255, 255</Property>
+      <Property name="Gradient Mode">Vertical</Property>
+      <Property name="Gradient ON">False</Property>
+      <DiagramReference id="ID=21" element="ID=13" metaclass="Class">
+        <Property name="Sealed">False</Property>
+        <Property name="Abstract">False</Property>
+        <Property name="summary"> Класс формы&lt;br /&gt;</Property>
+        <Property name="Persistent">False</Property>
+        <Property name="Extends">Vcl.Forms.TForm</Property>
+      </DiagramReference>
+      <DiagramReference id="ID=22" element="ID=17" metaclass="Module" />
+      <DiagramReference id="ID=23" element="ID=19" metaclass="Enum" />
+      <DiagramReference id="ID=24" element="ID=14" metaclass="Typedef">
+        <Property name="Type">array[1..10, 1..10] of TImage</Property>
+      </DiagramReference>
+      <DiagramReference id="ID=25" element="ID=16" metaclass="Class">
+        <Property name="Sealed">False</Property>
+        <Property name="Abstract">False</Property>
+        <Property name="summary"> Класс потока для принятия сообщения о начале новой игры&lt;br /&gt;</Property>
+        <Property name="Persistent">False</Property>
+        <Property name="Extends">System.Classes.TThread</Property>
+      </DiagramReference>
+      <DiagramReference id="ID=26" element="ID=18" metaclass="Class">
+        <Property name="Sealed">False</Property>
+        <Property name="Abstract">False</Property>
+        <Property name="summary"> Класс потока для принятия сообщения о том, что противник расставил корабли&lt;br /&gt;</Property>
+        <Property name="Persistent">False</Property>
+        <Property name="Extends">System.Classes.TThread</Property>
+      </DiagramReference>
+      <DiagramReference id="ID=27" element="ID=15" metaclass="Class">
+        <Property name="Sealed">False</Property>
+        <Property name="Abstract">False</Property>
+        <Property name="summary"> Класс потока для принятия выстрела&lt;br /&gt;</Property>
+        <Property name="Persistent">False</Property>
+        <Property name="Extends">System.Classes.TThread</Property>
+      </DiagramReference>
+    </DiagramReference>
+    <DiagramReference id="ID=9" element="ID=3" metaclass="Namespace">
+      <Property name="Gradient color 1">255, 255, 255</Property>
+      <Property name="Color Area">Whole Shape</Property>
+      <Property name="Gradient color 2">255, 255, 255</Property>
+      <Property name="Gradient Mode">Vertical</Property>
+      <Property name="Gradient ON">False</Property>
+      <DiagramReference id="ID=164" element="ID=161" metaclass="Typedef">
+        <Property name="summary">	  Массив палуб игрока&lt;br /&gt;</Property>
+        <Property name="Type">array[1..10, 1..10] of TImage</Property>
+      </DiagramReference>
+      <DiagramReference id="ID=165" element="ID=160" metaclass="Module" />
+      <DiagramReference id="ID=166" element="ID=162" metaclass="Delegate">
+        <Property name="summary">	  Процедура создания блока промаха на поле игрока&lt;br /&gt;</Property>
+      </DiagramReference>
+    </DiagramReference>
+  </Diagram>
+  <Package name="Project1" id="ID=4">
+    <Diagram name="Project1" id="ID=11" metaclass="Namespace Diagram" file="default.txvpck.html">
+      <Property name="defaultDiagram">true</Property>
+      <DiagramReference id="ID=187" element="ID=10" metaclass="Module">
+        <Property name="Gradient color 1">255, 255, 255</Property>
+        <Property name="Gradient color 2">255, 255, 255</Property>
+        <Property name="Gradient ON">False</Property>
+        <Property name="Color Area">Whole Shape</Property>
+        <Property name="Gradient Mode">Vertical</Property>
+      </DiagramReference>
+    </Diagram>
+    <Classifier name="globals Project1" id="ID=10" type="Module" visibility="public">
+      <Uses />
+    </Classifier>
+  </Package>
+  <Package name="Unit1" id="ID=5">
+    <Diagram name="Unit1" id="ID=20" metaclass="Namespace Diagram" file="default.txvpck.html">
+      <Property name="defaultDiagram">true</Property>
+      <DiagramReference id="ID=188" element="ID=13" metaclass="Class">
+        <Property name="Sealed">False</Property>
+        <Property name="Abstract">False</Property>
+        <Property name="Color Area">Whole Shape</Property>
+        <Property name="summary"> Класс формы&lt;br /&gt;</Property>
+        <Property name="Gradient Mode">Vertical</Property>
+        <Property name="Gradient color 2">255, 255, 255</Property>
+        <Property name="Gradient color 1">255, 255, 255</Property>
+        <Property name="Gradient ON">False</Property>
+        <Property name="Persistent">False</Property>
+        <Property name="Extends">Vcl.Forms.TForm</Property>
+      </DiagramReference>
+      <DiagramReference id="ID=189" element="ID=17" metaclass="Module">
+        <Property name="Gradient color 1">255, 255, 255</Property>
+        <Property name="Gradient color 2">255, 255, 255</Property>
+        <Property name="Gradient ON">False</Property>
+        <Property name="Color Area">Whole Shape</Property>
+        <Property name="Gradient Mode">Vertical</Property>
+        <DiagramReference id="ID=253" element="ID=124" metaclass="Association Link">
+          <Property name="Client">Form1</Property>
+          <Property name="Directed">False</Property>
+          <Property name="Type">association</Property>
+          <Property name="Supplier">TForm1</Property>
+        </DiagramReference>
+        <DiagramReference id="ID=254" element="ID=126" metaclass="Association Link">
+          <Property name="Client">Blocks</Property>
+          <Property name="Directed">False</Property>
+          <Property name="Type">association</Property>
+          <Property name="Supplier">TBlocks</Property>
+        </DiagramReference>
+        <DiagramReference id="ID=255" element="ID=127" metaclass="Association Link">
+          <Property name="Client">BlocksE</Property>
+          <Property name="Directed">False</Property>
+          <Property name="Type">association</Property>
+          <Property name="Supplier">TBlocks</Property>
+        </DiagramReference>
+        <DiagramReference id="ID=256" element="ID=131" metaclass="Association Link">
+          <Property name="Client">RecvThr</Property>
+          <Property name="Directed">False</Property>
+          <Property name="Type">association</Property>
+          <Property name="Supplier">TRecvThr</Property>
+        </DiagramReference>
+        <DiagramReference id="ID=257" element="ID=132" metaclass="Association Link">
+          <Property name="Client">NotSetedThr</Property>
+          <Property name="Directed">False</Property>
+          <Property name="Type">association</Property>
+          <Property name="Supplier">TSetedThr</Property>
+        </DiagramReference>
+        <DiagramReference id="ID=258" element="ID=135" metaclass="Association Link">
+          <Property name="Client">NewThr</Property>
+          <Property name="Directed">False</Property>
+          <Property name="Type">association</Property>
+          <Property name="Supplier">TNewThr</Property>
+        </DiagramReference>
+      </DiagramReference>
+      <DiagramReference id="ID=190" element="ID=19" metaclass="Enum">
+        <Property name="Color Area">Whole Shape</Property>
+        <Property name="Gradient color 2">255, 255, 255</Property>
+        <Property name="Gradient color 1">255, 255, 255</Property>
+        <Property name="Gradient Mode">Vertical</Property>
+        <Property name="Gradient ON">False</Property>
+      </DiagramReference>
+      <DiagramReference id="ID=191" element="ID=14" metaclass="Typedef">
+        <Property name="Gradient color 1">255, 255, 255</Property>
+        <Property name="Color Area">Whole Shape</Property>
+        <Property name="Gradient color 2">255, 255, 255</Property>
+        <Property name="Gradient Mode">Vertical</Property>
+        <Property name="Gradient ON">False</Property>
+        <Property name="Type">array[1..10, 1..10] of TImage</Property>
+      </DiagramReference>
+      <DiagramReference id="ID=192" element="ID=16" metaclass="Class">
+        <Property name="Sealed">False</Property>
+        <Property name="Abstract">False</Property>
+        <Property name="Color Area">Whole Shape</Property>
+        <Property name="summary"> Класс потока для принятия сообщения о начале новой игры&lt;br /&gt;</Property>
+        <Property name="Gradient Mode">Vertical</Property>
+        <Property name="Gradient color 2">255, 255, 255</Property>
+        <Property name="Gradient color 1">255, 255, 255</Property>
+        <Property name="Gradient ON">False</Property>
+        <Property name="Persistent">False</Property>
+        <Property name="Extends">System.Classes.TThread</Property>
+      </DiagramReference>
+      <DiagramReference id="ID=193" element="ID=18" metaclass="Class">
+        <Property name="Sealed">False</Property>
+        <Property name="Abstract">False</Property>
+        <Property name="Color Area">Whole Shape</Property>
+        <Property name="summary"> Класс потока для принятия сообщения о том, что противник расставил корабли&lt;br /&gt;</Property>
+        <Property name="Gradient Mode">Vertical</Property>
+        <Property name="Gradient color 2">255, 255, 255</Property>
+        <Property name="Gradient color 1">255, 255, 255</Property>
+        <Property name="Gradient ON">False</Property>
+        <Property name="Persistent">False</Property>
+        <Property name="Extends">System.Classes.TThread</Property>
+      </DiagramReference>
+      <DiagramReference id="ID=194" element="ID=15" metaclass="Class">
+        <Property name="Sealed">False</Property>
+        <Property name="Abstract">False</Property>
+        <Property name="Color Area">Whole Shape</Property>
+        <Property name="summary"> Класс потока для принятия выстрела&lt;br /&gt;</Property>
+        <Property name="Gradient Mode">Vertical</Property>
+        <Property name="Gradient color 2">255, 255, 255</Property>
+        <Property name="Gradient color 1">255, 255, 255</Property>
+        <Property name="Gradient ON">False</Property>
+        <Property name="Persistent">False</Property>
+        <Property name="Extends">System.Classes.TThread</Property>
+        <DiagramReference id="ID=273" element="ID=158" metaclass="Association Link">
+          <Property name="Client">B</Property>
+          <Property name="Directed">False</Property>
+          <Property name="Type">association</Property>
+          <Property name="Supplier">TBlocks</Property>
+        </DiagramReference>
+      </DiagramReference>
+    </Diagram>
+    <Classifier name="TForm1" id="ID=13" type="Class" visibility="public">
+      <Property name="Sealed">False</Property>
+      <Property name="Abstract">False</Property>
+      <Property name="summary"> Класс формы&lt;br /&gt;</Property>
+      <Property name="Persistent">False</Property>
+      <Property name="Extends">Vcl.Forms.TForm</Property>
+      <Extends idref="ID=49" refFN="Vcl.Forms.TForm" doom="true" />
+      <Uses>
+        <Use element="ID=77" type="field_type" />
+      </Uses>
+      <Field fieldType="Field" elementName="ImagePlayer" id="ID=28" type="TImage" systemType="TImage" isPrimitive="false" visibility="public">
+        <Property name="summary">	  Поле игрока&lt;br /&gt;</Property>
+        <Property name="Const">False</Property>
+        <Property name="Type">TImage</Property>
+        <Property name="Class">False</Property>
+      </Field>
+      <Field fieldType="Field" elementName="sSkinManager1" id="ID=29" type="TsSkinManager" systemType="TsSkinManager" isPrimitive="false" visibility="public">
+        <Property name="summary">	  Менеджер стилей формы&lt;br /&gt;</Property>
+        <Property name="Const">False</Property>
+        <Property name="Type">TsSkinManager</Property>
+        <Property name="Class">False</Property>
+      </Field>
+      <Field fieldType="Field" elementName="ImageBack" id="ID=30" type="TImage" systemType="TImage" isPrimitive="false" visibility="public">
+        <Property name="summary">	  Фоновое изображение&lt;br /&gt;</Property>
+        <Property name="Const">False</Property>
+        <Property name="Type">TImage</Property>
+        <Property name="Class">False</Property>
+      </Field>
+      <Field fieldType="Field" elementName="ImageEnemy" id="ID=31" type="TImage" systemType="TImage" isPrimitive="false" visibility="public">
+        <Property name="summary">	  Поле противника&lt;br /&gt;</Property>
+        <Property name="Const">False</Property>
+        <Property name="Type">TImage</Property>
+        <Property name="Class">False</Property>
+      </Field>
+      <Field fieldType="Field" elementName="sComboBox1" id="ID=32" type="TsComboBox" systemType="TsComboBox" isPrimitive="false" visibility="public">
+        <Property name="summary">	  Переключатель типа игры&lt;br /&gt;</Property>
+        <Property name="Const">False</Property>
+        <Property name="Type">TsComboBox</Property>
+        <Property name="Class">False</Property>
+      </Field>
+      <Field fieldType="Field" elementName="sButton1" id="ID=33" type="TsButton" systemType="TsButton" isPrimitive="false" visibility="public">
+        <Property name="summary">	  Кнопка новой игры&lt;br /&gt;</Property>
+        <Property name="Const">False</Property>
+        <Property name="Type">TsButton</Property>
+        <Property name="Class">False</Property>
+      </Field>
+      <Field fieldType="Field" elementName="sStatusBar1" id="ID=34" type="TsStatusBar" systemType="TsStatusBar" isPrimitive="false" visibility="public">
+        <Property name="summary">	  Нижняя панель статуса&lt;br /&gt;</Property>
+        <Property name="Const">False</Property>
+        <Property name="Type">TsStatusBar</Property>
+        <Property name="Class">False</Property>
+      </Field>
+      <Field fieldType="Field" elementName="sLabel1" id="ID=35" type="TsLabel" systemType="TsLabel" isPrimitive="false" visibility="public">
+        <Property name="summary">	  Лейбл IP&lt;br /&gt;</Property>
+        <Property name="Const">False</Property>
+        <Property name="Type">TsLabel</Property>
+        <Property name="Class">False</Property>
+      </Field>
+      <Field fieldType="Field" elementName="sEdit1" id="ID=36" type="TsEdit" systemType="TsEdit" isPrimitive="false" visibility="public">
+        <Property name="summary">	  Edit IP&lt;br /&gt;</Property>
+        <Property name="Const">False</Property>
+        <Property name="Type">TsEdit</Property>
+        <Property name="Class">False</Property>
+      </Field>
+      <Field fieldType="Field" elementName="ImageLogo" id="ID=37" type="TImage" systemType="TImage" isPrimitive="false" visibility="public">
+        <Property name="summary">	  Логотип&lt;br /&gt;</Property>
+        <Property name="Const">False</Property>
+        <Property name="Type">TImage</Property>
+        <Property name="Class">False</Property>
+      </Field>
+      <Field fieldType="Field" elementName="Timer1" id="ID=38" type="TTimer" systemType="TTimer" isPrimitive="false" visibility="public">
+        <Property name="summary">	  Стартовый таймер&lt;br /&gt;</Property>
+        <Property name="Const">False</Property>
+        <Property name="Type">TTimer</Property>
+        <Property name="Class">False</Property>
+      </Field>
+      <Method id="ID=39" name="ImagePlayerClick" isSubroutine="true" visibility="public">
+        <Parameter elementName="Sender" id="ID3=39_17565813" type="TObject" systemType="TObject" isPrimitive="false" />
+        <Property name="Final">False</Property>
+        <Property name="summary">	  Обрабатывает расстановку кораблей на поле игрока&lt;br /&gt;</Property>
+        <Property name="param">&lt;br /&gt;	  Объект, вызвавший метод&lt;br /&gt;</Property>
+        <Property name="Override">False</Property>
+        <Property name="Virtual">False</Property>
+        <Property name="Reintroduce">False</Property>
+        <Property name="Class">False</Property>
+        <Property name="Abstract">False</Property>
+        <ReturnType id="ID=39" type="" isPrimitive="true" />
+      </Method>
+      <Method id="ID=40" name="FormCreate" isSubroutine="true" visibility="public">
+        <Parameter elementName="Sender" id="ID3=40_13544785" type="TObject" systemType="TObject" isPrimitive="false" />
+        <Property name="Final">False</Property>
+        <Property name="summary">	  Устанавливает IP и начальные значения переменных&lt;br /&gt;</Property>
+        <Property name="param">&lt;br /&gt;	  Объект, вызвавший метод&lt;br /&gt;</Property>
+        <Property name="Override">False</Property>
+        <Property name="Virtual">False</Property>
+        <Property name="Reintroduce">False</Property>
+        <Property name="Class">False</Property>
+        <Property name="Abstract">False</Property>
+        <ReturnType id="ID=40" type="" isPrimitive="true" />
+      </Method>
+      <Method id="ID=41" name="ImagePlayerMouseDown" isSubroutine="true" visibility="public">
+        <Parameter elementName="Sender" id="ID3=41_17896563" type="TObject" systemType="TObject" isPrimitive="false" />
+        <Parameter elementName="Button" id="ID3=41_31186707" type="TMouseButton" systemType="TMouseButton" isPrimitive="false" />
+        <Parameter elementName="Shift" id="ID3=41_52313474" type="TShiftState" systemType="TShiftState" isPrimitive="false" />
+        <Parameter elementName="X" id="ID3=41_9533038" type="Integer" systemType="Integer" isPrimitive="false" />
+        <Parameter elementName="Y" id="ID3=41_33978581" type="Integer" systemType="Integer" isPrimitive="false" />
+        <Property name="Final">False</Property>
+        <Property name="summary">	  Устанавливает флаг нажатия левой кнопки(левая или правая)&lt;br /&gt;</Property>
+        <Property name="param">&lt;br /&gt;	  Объект, вызвавший метод&lt;br /&gt;	&lt;br /&gt;&lt;br /&gt;	  Кнопка мыши&lt;br /&gt;	&lt;br /&gt;&lt;br /&gt;	  Состояние клавиши Shift&lt;br /&gt;	&lt;br /&gt;&lt;br /&gt;	  Положение мыши X&lt;br /&gt;	&lt;br /&gt;&lt;br /&gt;	  Положение мыши Y&lt;br /&gt;</Property>
+        <Property name="Override">False</Property>
+        <Property name="Virtual">False</Property>
+        <Property name="Reintroduce">False</Property>
+        <Property name="Class">False</Property>
+        <Property name="Abstract">False</Property>
+        <ReturnType id="ID=41" type="" isPrimitive="true" />
+      </Method>
+      <Method id="ID=42" name="sButton1Click" isSubroutine="true" visibility="public">
+        <Parameter elementName="Sender" id="ID3=42_801697" type="TObject" systemType="TObject" isPrimitive="false" />
+        <Property name="Final">False</Property>
+        <Property name="summary">	  Запуск новой игры&lt;br /&gt;</Property>
+        <Property name="param">&lt;br /&gt;	  Объект, вызвавший метод&lt;br /&gt;</Property>
+        <Property name="Override">False</Property>
+        <Property name="Virtual">False</Property>
+        <Property name="Reintroduce">False</Property>
+        <Property name="Class">False</Property>
+        <Property name="Abstract">False</Property>
+        <ReturnType id="ID=42" type="" isPrimitive="true" />
+      </Method>
+      <Method id="ID=43" name="ImageEnemyClick" isSubroutine="true" visibility="public">
+        <Parameter elementName="Sender" id="ID3=43_64937530" type="TObject" systemType="TObject" isPrimitive="false" />
+        <Property name="Final">False</Property>
+        <Property name="summary">	  Обрабатывает выстрелы в корабли противника&lt;br /&gt;</Property>
+        <Property name="param">&lt;br /&gt;	  Объект, вызвавший метод&lt;br /&gt;</Property>
+        <Property name="Override">False</Property>
+        <Property name="Virtual">False</Property>
+        <Property name="Reintroduce">False</Property>
+        <Property name="Class">False</Property>
+        <Property name="Abstract">False</Property>
+        <ReturnType id="ID=43" type="" isPrimitive="true" />
+      </Method>
+      <Method id="ID=44" name="sEdit1Change" isSubroutine="true" visibility="public">
+        <Parameter elementName="Sender" id="ID3=44_25448583" type="TObject" systemType="TObject" isPrimitive="false" />
+        <Property name="Final">False</Property>
+        <Property name="summary">	  Устанавливает IP, если он записан в поле&lt;br /&gt;</Property>
+        <Property name="param">&lt;br /&gt;	  Объект, вызвавший метод&lt;br /&gt;</Property>
+        <Property name="Override">False</Property>
+        <Property name="Virtual">False</Property>
+        <Property name="Reintroduce">False</Property>
+        <Property name="Class">False</Property>
+        <Property name="Abstract">False</Property>
+        <ReturnType id="ID=44" type="" isPrimitive="true" />
+      </Method>
+      <Method id="ID=45" name="Timer1Timer" isSubroutine="true" visibility="public">
+        <Parameter elementName="Sender" id="ID3=45_48069361" type="TObject" systemType="TObject" isPrimitive="false" />
+        <Property name="Final">False</Property>
+        <Property name="summary">	  Скрывает лого и запускает поток ожидания новой игры&lt;br /&gt;</Property>
+        <Property name="param">&lt;br /&gt;	  Объект, вызвавший метод&lt;br /&gt;</Property>
+        <Property name="Override">False</Property>
+        <Property name="Virtual">False</Property>
+        <Property name="Reintroduce">False</Property>
+        <Property name="Class">False</Property>
+        <Property name="Abstract">False</Property>
+        <ReturnType id="ID=45" type="" isPrimitive="true" />
+      </Method>
+    </Classifier>
+    <Classifier name="TBlocks" id="ID=14" type="Typedef" visibility="public">
+      <Property name="Type">array[1..10, 1..10] of TImage</Property>
+      <Uses>
+        <Use element="ID=149" type="field_type" />
+        <Use element="ID=79" type="field_type" />
+        <Use element="ID=80" type="field_type" />
+      </Uses>
+    </Classifier>
+    <Classifier name="TRecvThr" id="ID=15" type="Class" visibility="public">
+      <Property name="Sealed">False</Property>
+      <Property name="Abstract">False</Property>
+      <Property name="summary"> Класс потока для принятия выстрела&lt;br /&gt;</Property>
+      <Property name="Persistent">False</Property>
+      <Property name="Extends">System.Classes.TThread</Property>
+      <Link targetName="B" id="ID=158" metaclass="Association Link" idref="ID=14">
+        <Property name="Client">B</Property>
+        <Property name="Directed">False</Property>
+        <Property name="Type">association</Property>
+        <Property name="Supplier">TBlocks</Property>
+      </Link>
+      <Extends idref="ID=142" refFN="System.Classes.TThread" doom="true" />
+      <Uses>
+        <Use element="ID=88" type="field_type" />
+      </Uses>
+      <Field fieldType="Field" elementName="X" id="ID=147" type="integer" systemType="Integer" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">integer</Property>
+        <Property name="Class">False</Property>
+      </Field>
+      <Field fieldType="Field" elementName="Y" id="ID=148" type="integer" systemType="Integer" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">integer</Property>
+        <Property name="Class">False</Property>
+      </Field>
+      <Field fieldType="Field" elementName="B" id="ID=149" typeref="ID=14" type="TBlocks" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">TBlocks</Property>
+        <Property name="Class">False</Property>
+      </Field>
+      <Field fieldType="Field" elementName="Ret" id="ID=150" type="ansichar" systemType="AnsiChar" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">ansichar</Property>
+        <Property name="Class">False</Property>
+      </Field>
+      <Field fieldType="Field" elementName="Executed" id="ID=151" type="boolean" systemType="Boolean" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">boolean</Property>
+        <Property name="Class">False</Property>
+      </Field>
+    </Classifier>
+    <Classifier name="TSetedThr" id="ID=18" type="Class" visibility="public">
+      <Property name="Sealed">False</Property>
+      <Property name="Abstract">False</Property>
+      <Property name="summary"> Класс потока для принятия сообщения о том, что противник расставил корабли&lt;br /&gt;</Property>
+      <Property name="Persistent">False</Property>
+      <Property name="Extends">System.Classes.TThread</Property>
+      <Extends idref="ID=142" refFN="System.Classes.TThread" doom="true" />
+      <Uses>
+        <Use element="ID=89" type="field_type" />
+      </Uses>
+    </Classifier>
+    <Classifier name="TNewThr" id="ID=16" type="Class" visibility="public">
+      <Property name="Sealed">False</Property>
+      <Property name="Abstract">False</Property>
+      <Property name="summary"> Класс потока для принятия сообщения о начале новой игры&lt;br /&gt;</Property>
+      <Property name="Persistent">False</Property>
+      <Property name="Extends">System.Classes.TThread</Property>
+      <Extends idref="ID=142" refFN="System.Classes.TThread" doom="true" />
+      <Uses>
+        <Use element="ID=95" type="field_type" />
+      </Uses>
+    </Classifier>
+    <Classifier name="globals Unit1" id="ID=17" type="Module" visibility="public">
+      <Method id="ID=101" name="CreateBlock" isSubroutine="true" visibility="public">
+        <Parameter elementName="X" id="ID3=101_33764969" type="integer" systemType="Integer" isPrimitive="false" />
+        <Parameter elementName="Y" id="ID3=101_50607957" type="integer" systemType="Integer" isPrimitive="false" />
+        <Property name="summary"> Создание квадратного блока&lt;br /&gt;</Property>
+        <Property name="param">&lt;br /&gt;	  Координата X блока на поле. Принимает значения от 1 до 10&lt;br /&gt;	&lt;br /&gt;&lt;br /&gt;	  Координата Y блока на поле. Принимает значения от 1 до 10&lt;br /&gt;</Property>
+        <ReturnType id="ID=101" type="" isPrimitive="true" />
+      </Method>
+      <Method id="ID=102" name="CreateBlockFightEnemy" isSubroutine="true" visibility="public">
+        <Parameter elementName="X" id="ID3=102_5603813" type="integer" systemType="Integer" isPrimitive="false" />
+        <Parameter elementName="Y" id="ID3=102_51255681" type="integer" systemType="Integer" isPrimitive="false" />
+        <Property name="summary"> Создание блока подстреленной палубы на поле противника&lt;br /&gt;</Property>
+        <Property name="param">&lt;br /&gt;	  Координата X блока на поле. Принимает значения от 1 до 10&lt;br /&gt;	&lt;br /&gt;&lt;br /&gt;	  Координата Y блока на поле. Принимает значения от 1 до 10&lt;br /&gt;</Property>
+        <ReturnType id="ID=102" type="" isPrimitive="true" />
+      </Method>
+      <Method id="ID=103" name="CreateBlockMimoEnemy" isSubroutine="true" visibility="public">
+        <Parameter elementName="X" id="ID3=103_58069522" type="integer" systemType="Integer" isPrimitive="false" />
+        <Parameter elementName="Y" id="ID3=103_6010880" type="integer" systemType="Integer" isPrimitive="false" />
+        <Property name="summary"> Создание блока-промаха на поле противника&lt;br /&gt;</Property>
+        <Property name="param">&lt;br /&gt;	  Координата X блока на поле. Принимает значения от 1 до 10&lt;br /&gt;	&lt;br /&gt;&lt;br /&gt;	  Координата Y блока на поле. Принимает значения от 1 до 10&lt;br /&gt;</Property>
+        <ReturnType id="ID=103" type="" isPrimitive="true" />
+      </Method>
+      <Method id="ID=104" name="CreateBlockMimo" isSubroutine="true" visibility="public">
+        <Parameter elementName="X" id="ID3=104_17119282" type="integer" systemType="Integer" isPrimitive="false" />
+        <Parameter elementName="Y" id="ID3=104_44484625" type="integer" systemType="Integer" isPrimitive="false" />
+        <Property name="summary"> Создание блока-промаха на поле игрока&lt;br /&gt;</Property>
+        <Property name="param">&lt;br /&gt;	  Координата X блока на поле. Принимает значения от 1 до 10&lt;br /&gt;	&lt;br /&gt;&lt;br /&gt;	  Координата Y блока на поле. Принимает значения от 1 до 10&lt;br /&gt;</Property>
+        <ReturnType id="ID=104" type="" isPrimitive="true" />
+      </Method>
+      <Method id="ID=105" name="GetFightColls" visibility="public">
+        <Property name="Returns">integer</Property>
+        <Property name="summary"> Возвращает количество подстреленных блоков на поле игрока&lt;br /&gt;</Property>
+        <Property name="returns">&lt;br /&gt;  Колличество подстреленных палуб&lt;br /&gt;</Property>
+        <ReturnType id="ID=105" type="integer" systemType="Integer" isPrimitive="false" />
+      </Method>
+      <Method id="ID=106" name="GetEnemyFightColls" visibility="public">
+        <Property name="Returns">integer</Property>
+        <Property name="summary"> Количество подстреленных блоков на поле противника&lt;br /&gt;</Property>
+        <Property name="returns">&lt;br /&gt;  Колличество подстреленных палуб&lt;br /&gt;</Property>
+        <ReturnType id="ID=106" type="integer" systemType="Integer" isPrimitive="false" />
+      </Method>
+      <Method id="ID=107" name="IsPlayerWin" visibility="public">
+        <Property name="Returns">boolean</Property>
+        <Property name="summary"> Игрок победил?&lt;br /&gt;</Property>
+        <Property name="returns">&lt;br /&gt;  true - если игрок победил, false - иначе&lt;br /&gt;</Property>
+        <ReturnType id="ID=107" type="boolean" systemType="Boolean" isPrimitive="false" />
+      </Method>
+      <Method id="ID=108" name="IsPlayerLost" visibility="public">
+        <Property name="Returns">boolean</Property>
+        <Property name="summary"> Игрок проиграл?&lt;br /&gt;</Property>
+        <Property name="returns">&lt;br /&gt;  true - если игрок победил, false - иначе&lt;br /&gt;</Property>
+        <ReturnType id="ID=108" type="boolean" systemType="Boolean" isPrimitive="false" />
+      </Method>
+      <Method id="ID=109" name="NewGame" isSubroutine="true" visibility="public">
+        <Property name="summary"> Новая игра. Сброс всех данных старой игры и первые ходы новой&lt;br /&gt;</Property>
+        <ReturnType id="ID=109" type="" isPrimitive="true" />
+      </Method>
+      <Method id="ID=110" name="ReceiveNewGame" isSubroutine="true" visibility="public">
+        <Property name="summary"> Ждет сообщения о начале новой игры и нажимает кнопку&lt;br /&gt;</Property>
+        <ReturnType id="ID=110" type="" isPrimitive="true" />
+      </Method>
+      <Method id="ID=111" name="SetIp" isSubroutine="true" visibility="public">
+        <Parameter elementName="s" id="ID3=111_15710633" type="string" isPrimitive="true" />
+        <Property name="summary"> Установка IP адреса противника для сетевого взаимодействия&lt;br /&gt;</Property>
+        <Property name="param">&lt;br /&gt;	  IP в строковом виде&lt;br /&gt;</Property>
+        <ReturnType id="ID=111" type="" isPrimitive="true" />
+      </Method>
+      <Method id="ID=112" name="IsIp" visibility="public">
+        <Parameter elementName="s" id="ID3=112_64601750" type="string" isPrimitive="true" />
+        <Property name="Returns">boolean</Property>
+        <Property name="summary"> Проверка, является ли строка IP адресом&lt;br /&gt;</Property>
+        <Property name="param">&lt;br /&gt;	  IP в строковом виде&lt;br /&gt;</Property>
+        <ReturnType id="ID=112" type="boolean" systemType="Boolean" isPrimitive="false" />
+      </Method>
+      <Method id="ID=113" name="BlocksIsFree" visibility="public">
+        <Parameter elementName="X" id="ID3=113_65359243" type="integer" systemType="Integer" isPrimitive="false" />
+        <Parameter elementName="Y" id="ID3=113_59607345" type="integer" systemType="Integer" isPrimitive="false" />
+        <Parameter elementName="Orientation" id="ID3=113_63465647" typeref="ID=19" type="TOrientation" isPrimitive="false" />
+        <Parameter elementName="Col" id="ID3=113_40443822" type="integer" systemType="Integer" isPrimitive="false" />
+        <Property name="Returns">boolean</Property>
+        <Property name="summary"> Блок свободен для установки корабля(с учетом правил игры)&lt;br /&gt;</Property>
+        <Property name="returns">&lt;br /&gt; Можно ли поставить корабль?&lt;br /&gt;</Property>
+        <Property name="param">&lt;br /&gt;	  X - координата начального блока&lt;br /&gt;	&lt;br /&gt;&lt;br /&gt;	  Y - координата начального блока&lt;br /&gt;	&lt;br /&gt;&lt;br /&gt;   Ориентация корабля&lt;br /&gt;	&lt;br /&gt;&lt;br /&gt;   Количество палуб&lt;br /&gt;</Property>
+        <ReturnType id="ID=113" type="boolean" systemType="Boolean" isPrimitive="false" />
+      </Method>
+      <Method id="ID=114" name="SetShip" visibility="public">
+        <Parameter elementName="X" id="ID3=114_54724182" type="integer" systemType="Integer" isPrimitive="false" />
+        <Parameter elementName="Y" id="ID3=114_3473742" type="integer" systemType="Integer" isPrimitive="false" />
+        <Parameter elementName="Orientation" id="ID3=114_12937662" typeref="ID=19" type="TOrientation" isPrimitive="false" />
+        <Parameter elementName="Col" id="ID3=114_41317711" type="integer" systemType="Integer" isPrimitive="false" />
+        <Property name="Returns">boolean</Property>
+        <Property name="summary"> Установить корабль указанного размера и положения&lt;br /&gt;</Property>
+        <Property name="returns">&lt;br /&gt; Установился ли корабль?&lt;br /&gt;</Property>
+        <Property name="param">&lt;br /&gt;	  X - координата начального блока&lt;br /&gt;	&lt;br /&gt;&lt;br /&gt;	  Y - координата начального блока&lt;br /&gt;	&lt;br /&gt;&lt;br /&gt;   Ориентация корабля&lt;br /&gt;	&lt;br /&gt;&lt;br /&gt;   Количество палуб&lt;br /&gt;</Property>
+        <ReturnType id="ID=114" type="boolean" systemType="Boolean" isPrimitive="false" />
+      </Method>
+      <Method id="ID=115" name="GetCoords" isSubroutine="true" visibility="public">
+        <Parameter elementName="X" id="ID3=115_58400296" Modifiers="ref/" type="integer" systemType="Integer" isPrimitive="false" />
+        <Parameter elementName="Y" id="ID3=115_32803570" Modifiers="ref/" type="integer" systemType="Integer" isPrimitive="false" />
+        <Property name="summary"> Преобразовать координаты мыши на экране в координаты клетки на поле игрока&lt;br /&gt;</Property>
+        <Property name="param">&lt;br /&gt;	  X - координата начального блока&lt;br /&gt;	&lt;br /&gt;&lt;br /&gt;	  Y - координата начального блока&lt;br /&gt;</Property>
+        <ReturnType id="ID=115" type="" isPrimitive="true" />
+      </Method>
+      <Method id="ID=116" name="GetCoordsEnemy" isSubroutine="true" visibility="public">
+        <Parameter elementName="X" id="ID3=116_39843541" Modifiers="ref/" type="integer" systemType="Integer" isPrimitive="false" />
+        <Parameter elementName="Y" id="ID3=116_6101368" Modifiers="ref/" type="integer" systemType="Integer" isPrimitive="false" />
+        <Property name="summary"> Преобразовать координаты мыши на экране в координаты клетки на поле&lt;br /&gt;  противника&lt;br /&gt;</Property>
+        <Property name="param">&lt;br /&gt;	  X - координата клика мышью&lt;br /&gt;	&lt;br /&gt;&lt;br /&gt;	  Y - координата клика мышью&lt;br /&gt;</Property>
+        <ReturnType id="ID=116" type="" isPrimitive="true" />
+      </Method>
+      <Link targetName="Form1" id="ID=124" metaclass="Association Link" idref="ID=13">
+        <Property name="Client">Form1</Property>
+        <Property name="Directed">False</Property>
+        <Property name="Type">association</Property>
+        <Property name="Supplier">TForm1</Property>
+      </Link>
+      <Link targetName="Blocks" id="ID=126" metaclass="Association Link" idref="ID=14">
+        <Property name="Client">Blocks</Property>
+        <Property name="Directed">False</Property>
+        <Property name="Type">association</Property>
+        <Property name="Supplier">TBlocks</Property>
+      </Link>
+      <Link targetName="BlocksE" id="ID=127" metaclass="Association Link" idref="ID=14">
+        <Property name="Client">BlocksE</Property>
+        <Property name="Directed">False</Property>
+        <Property name="Type">association</Property>
+        <Property name="Supplier">TBlocks</Property>
+      </Link>
+      <Link targetName="RecvThr" id="ID=131" metaclass="Association Link" idref="ID=15">
+        <Property name="Client">RecvThr</Property>
+        <Property name="Directed">False</Property>
+        <Property name="Type">association</Property>
+        <Property name="Supplier">TRecvThr</Property>
+      </Link>
+      <Link targetName="NotSetedThr" id="ID=132" metaclass="Association Link" idref="ID=18">
+        <Property name="Client">NotSetedThr</Property>
+        <Property name="Directed">False</Property>
+        <Property name="Type">association</Property>
+        <Property name="Supplier">TSetedThr</Property>
+      </Link>
+      <Link targetName="NewThr" id="ID=135" metaclass="Association Link" idref="ID=16">
+        <Property name="Client">NewThr</Property>
+        <Property name="Directed">False</Property>
+        <Property name="Type">association</Property>
+        <Property name="Supplier">TNewThr</Property>
+      </Link>
+      <Uses />
+      <Field fieldType="Field" elementName="Form1" id="ID=77" typeref="ID=13" type="TForm1" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">TForm1</Property>
+      </Field>
+      <Field fieldType="Field" elementName="Img" id="ID=78" type="TImage" systemType="TImage" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">TImage</Property>
+      </Field>
+      <Field fieldType="Field" elementName="Blocks" id="ID=79" typeref="ID=14" type="TBlocks" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">TBlocks</Property>
+      </Field>
+      <Field fieldType="Field" elementName="BlocksE" id="ID=80" typeref="ID=14" type="TBlocks" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">TBlocks</Property>
+      </Field>
+      <Field fieldType="Field" elementName="Palub" id="ID=81" type="integer" systemType="Integer" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">integer</Property>
+      </Field>
+      <Field fieldType="Field" elementName="MLeft" id="ID=82" type="boolean" systemType="Boolean" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">boolean</Property>
+      </Field>
+      <Field fieldType="Field" elementName="Seted" id="ID=83" type="boolean" systemType="Boolean" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">boolean</Property>
+      </Field>
+      <Field fieldType="Field" elementName="EnemySeted" id="ID=84" type="boolean" systemType="Boolean" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">boolean</Property>
+      </Field>
+      <Field fieldType="Field" elementName="Received" id="ID=85" type="boolean" systemType="Boolean" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">boolean</Property>
+      </Field>
+      <Field fieldType="Field" elementName="X" id="ID=86" type="integer" systemType="Integer" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">integer</Property>
+      </Field>
+      <Field fieldType="Field" elementName="Y" id="ID=87" type="integer" systemType="Integer" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">integer</Property>
+      </Field>
+      <Field fieldType="Field" elementName="RecvThr" id="ID=88" typeref="ID=15" type="TRecvThr" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">TRecvThr</Property>
+      </Field>
+      <Field fieldType="Field" elementName="NotSetedThr" id="ID=89" typeref="ID=18" type="TSetedThr" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">TSetedThr</Property>
+      </Field>
+      <Field fieldType="Field" elementName="SockServer" id="ID=90" type="TSocket" systemType="TSocket" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">TSocket</Property>
+      </Field>
+      <Field fieldType="Field" elementName="Hod" id="ID=91" type="boolean" systemType="Boolean" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">boolean</Property>
+      </Field>
+      <Field fieldType="Field" elementName="Pobeda" id="ID=92" type="boolean" systemType="Boolean" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">boolean</Property>
+      </Field>
+      <Field fieldType="Field" elementName="Proigrysh" id="ID=93" type="boolean" systemType="Boolean" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">boolean</Property>
+      </Field>
+      <Field fieldType="Field" elementName="Res" id="ID=94" type="ansichar" systemType="AnsiChar" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">ansichar</Property>
+      </Field>
+      <Field fieldType="Field" elementName="NewThr" id="ID=95" typeref="ID=16" type="TNewThr" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">TNewThr</Property>
+      </Field>
+      <Field fieldType="Field" elementName="FirstClick" id="ID=96" type="boolean" systemType="Boolean" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">boolean</Property>
+      </Field>
+      <Field fieldType="Field" elementName="ShouldStart" id="ID=97" type="boolean" systemType="Boolean" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">boolean</Property>
+      </Field>
+      <Field fieldType="Field" elementName="Clicked" id="ID=98" type="boolean" systemType="Boolean" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">boolean</Property>
+      </Field>
+      <Field fieldType="Field" elementName="ClickToEnemy" id="ID=99" type="boolean" systemType="Boolean" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">boolean</Property>
+      </Field>
+      <Field fieldType="Field" elementName="Field1" id="ID=100" type="Integer" systemType="Integer" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">Integer</Property>
+      </Field>
+    </Classifier>
+    <Classifier name="TOrientation" id="ID=19" type="Enum" visibility="public">
+      <Uses>
+        <Use element="ID3=113_63465647" type="parameter_type" />
+        <Use element="ID3=114_12937662" type="parameter_type" />
+        <Use element="ID=137" type="field_type" />
+        <Use element="ID=138" type="field_type" />
+      </Uses>
+      <Field fieldType="Field" elementName="vertic" id="ID=137" typeref="ID=19" isPrimitive="false" type="Enumeration Value" visibility="public" />
+      <Field fieldType="Field" elementName="horizont" id="ID=138" typeref="ID=19" isPrimitive="false" type="Enumeration Value" visibility="public" />
+    </Classifier>
+  </Package>
+  <Package name="Inet" id="ID=3">
+    <Diagram name="Inet" id="ID=163" metaclass="Namespace Diagram" file="default.txvpck.html">
+      <Property name="defaultDiagram">true</Property>
+      <DiagramReference id="ID=279" element="ID=161" metaclass="Typedef">
+        <Property name="Gradient color 1">255, 255, 255</Property>
+        <Property name="Color Area">Whole Shape</Property>
+        <Property name="summary">	  Массив палуб игрока&lt;br /&gt;</Property>
+        <Property name="Gradient color 2">255, 255, 255</Property>
+        <Property name="Gradient Mode">Vertical</Property>
+        <Property name="Gradient ON">False</Property>
+        <Property name="Type">array[1..10, 1..10] of TImage</Property>
+      </DiagramReference>
+      <DiagramReference id="ID=280" element="ID=160" metaclass="Module">
+        <Property name="Gradient color 1">255, 255, 255</Property>
+        <Property name="Gradient color 2">255, 255, 255</Property>
+        <Property name="Gradient ON">False</Property>
+        <Property name="Color Area">Whole Shape</Property>
+        <Property name="Gradient Mode">Vertical</Property>
+      </DiagramReference>
+      <DiagramReference id="ID=281" element="ID=162" metaclass="Delegate">
+        <Property name="Color Area">Whole Shape</Property>
+        <Property name="Gradient color 2">255, 255, 255</Property>
+        <Property name="summary">	  Процедура создания блока промаха на поле игрока&lt;br /&gt;</Property>
+        <Property name="Gradient Mode">Vertical</Property>
+        <Property name="Gradient ON">False</Property>
+        <Property name="Gradient color 1">255, 255, 255</Property>
+      </DiagramReference>
+    </Diagram>
+    <Classifier name="TBlocks" id="ID=161" type="Typedef" visibility="public">
+      <Property name="summary">	  Массив палуб игрока&lt;br /&gt;</Property>
+      <Property name="Type">array[1..10, 1..10] of TImage</Property>
+      <Uses>
+        <Use element="ID3=167_60057505" type="parameter_type" />
+      </Uses>
+    </Classifier>
+    <Classifier name="globals Inet" id="ID=160" type="Module" visibility="public">
+      <Uses />
+      <Field fieldType="Field" elementName="IP" id="ID=173" type="SunB" systemType="SunB" isPrimitive="false" visibility="internal">
+        <Property name="summary">	  IP противника&lt;br /&gt;</Property>
+        <Property name="Const">False</Property>
+        <Property name="Type">SunB</Property>
+      </Field>
+      <Field fieldType="Field" elementName="PortFrom" id="ID=174" DefaultValue="3333" type="System.Smallint" systemType="Smallint" isPrimitive="false" visibility="internal">
+        <Property name="Initial">3333</Property>
+        <Property name="Const">True</Property>
+      </Field>
+      <Field fieldType="Field" elementName="PortTo" id="ID=175" DefaultValue="3333" type="System.Smallint" systemType="Smallint" isPrimitive="false" visibility="internal">
+        <Property name="Initial">3333</Property>
+        <Property name="Const">True</Property>
+      </Field>
+      <Field fieldType="Field" elementName="MAX_CONNECTIONS" id="ID=176" DefaultValue="1" type="System.Shortint" systemType="Shortint" isPrimitive="false" visibility="internal">
+        <Property name="Initial">1</Property>
+        <Property name="Const">True</Property>
+      </Field>
+      <Field fieldType="Field" elementName="info" id="ID=177" type="WSAData" systemType="WSAData" isPrimitive="false" visibility="internal">
+        <Property name="Const">False</Property>
+        <Property name="Type">WSAData</Property>
+      </Field>
+      <Method id="ID=167" name="RecvFight" visibility="public">
+        <Parameter elementName="x" id="ID3=167_64857530" Modifiers="ref/" type="integer" systemType="Integer" isPrimitive="false" />
+        <Parameter elementName="y" id="ID3=167_18968549" Modifiers="ref/" type="integer" systemType="Integer" isPrimitive="false" />
+        <Parameter elementName="Blocks" id="ID3=167_60057505" Modifiers="ref/" typeref="ID=161" type="TBlocks" isPrimitive="false" />
+        <Parameter elementName="SockServer" id="ID3=167_32819733" Modifiers="ref/" type="TSocket" systemType="TSocket" isPrimitive="false" />
+        <Parameter elementName="CrBm" id="ID3=167_41152746" typeref="ID=162" type="TCrBM" isPrimitive="false" />
+        <Property name="Returns">ansichar</Property>
+        <Property name="summary">	  Принятие выстрела&lt;br /&gt;</Property>
+        <Property name="param">&lt;br /&gt;	  Координата блока по X&lt;br /&gt;	&lt;br /&gt;&lt;br /&gt;	  Координата блока по Y&lt;br /&gt;	&lt;br /&gt;&lt;br /&gt;	  Массив блоков игрока&lt;br /&gt;	&lt;br /&gt;&lt;br /&gt;	  Сокет сервера&lt;br /&gt;	&lt;br /&gt;&lt;br /&gt;	  Процедура создания блока промаха на поле игрока&lt;br /&gt;</Property>
+        <ReturnType id="ID=167" type="ansichar" systemType="AnsiChar" isPrimitive="false" />
+      </Method>
+      <Method id="ID=168" name="SendFight" visibility="public">
+        <Parameter elementName="x" id="ID3=168_2690185" type="integer" systemType="Integer" isPrimitive="false" />
+        <Parameter elementName="y" id="ID3=168_16578438" type="integer" systemType="Integer" isPrimitive="false" />
+        <Property name="Returns">char</Property>
+        <Property name="summary">	  Отправка выстрела&lt;br /&gt;</Property>
+        <Property name="returns">&lt;br /&gt;	  Результат выстрела&lt;br /&gt;</Property>
+        <Property name="param">&lt;br /&gt;	  Координаты блока X&lt;br /&gt;	&lt;br /&gt;&lt;br /&gt;	  Координата блока Y&lt;br /&gt;</Property>
+        <ReturnType id="ID=168" type="char" systemType="Char" isPrimitive="false" />
+      </Method>
+      <Method id="ID=169" name="SendSeted" isSubroutine="true" visibility="public">
+        <Property name="summary">	  отправка сообщения о том, что все корабли игрока расставлены&lt;br /&gt;</Property>
+        <ReturnType id="ID=169" type="" isPrimitive="true" />
+      </Method>
+      <Method id="ID=170" name="RecvSeted" isSubroutine="true" visibility="public">
+        <Parameter elementName="SockServer" id="ID3=170_676256" Modifiers="ref/" type="TSocket" systemType="TSocket" isPrimitive="false" />
+        <Property name="summary">	  Прием сообщения о том, что противник расставил все свои корабли&lt;br /&gt;</Property>
+        <Property name="param">&lt;br /&gt;	  Сокет сервера&lt;br /&gt;</Property>
+        <ReturnType id="ID=170" type="" isPrimitive="true" />
+      </Method>
+      <Method id="ID=171" name="SendNew" isSubroutine="true" visibility="public">
+        <Property name="summary">	  Отправка сообщения о начале новой игры&lt;br /&gt;</Property>
+        <ReturnType id="ID=171" type="" isPrimitive="true" />
+      </Method>
+      <Method id="ID=172" name="RecvNewFirst" isSubroutine="true" visibility="public">
+        <Parameter elementName="SockServer" id="ID3=172_54776766" Modifiers="ref/" type="TSocket" systemType="TSocket" isPrimitive="false" />
+        <Property name="summary">	  Принятие сообщения о начале новой игры&lt;br /&gt;</Property>
+        <Property name="param">&lt;br /&gt;	  Сокет сервера&lt;br /&gt;</Property>
+        <ReturnType id="ID=172" type="" isPrimitive="true" />
+      </Method>
+    </Classifier>
+    <Classifier name="TCrBM" id="ID=162" type="Delegate" isSubroutine="true" visibility="public">
+      <Parameter elementName="X" id="ID3=162_259947" type="integer" systemType="Integer" isPrimitive="false" />
+      <Parameter elementName="Y" id="ID3=162_21055716" type="integer" systemType="Integer" isPrimitive="false" />
+      <Property name="summary">	  Процедура создания блока промаха на поле игрока&lt;br /&gt;</Property>
+      <ReturnType id="ID=162" type="" isPrimitive="true" />
+      <Uses>
+        <Use element="ID3=167_41152746" type="parameter_type" />
+      </Uses>
+    </Classifier>
+  </Package>
+</Model>

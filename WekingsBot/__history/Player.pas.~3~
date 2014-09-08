@@ -1,0 +1,20 @@
+unit Player;
+interface
+  /////////  À¿—— »√–Œ ¿ /////////////////////////////////////
+  TPlayer = class
+    Param: record Sila,Zashita,Lovkost,Masterstvo,Zhivuchest:integer end;
+    Health,Fights,Sera,Golds,Kris:integer;
+    SilaCost,ZashitaCost,LovkostCost,MasterstvoCost,ZhivuchestCost:integer;
+    Level:integer;
+    PohodIsset,ShahtaIsset:boolean;
+    Nagrab,Lost,NagrabKris,LostKris,NagrabGolds:integer;
+    Pet:TPet;
+    SvitkiTime:Cardinal;
+    procedure GetTrainCost;
+    constructor Create;
+  end;
+implementation
+
+begin
+
+end.

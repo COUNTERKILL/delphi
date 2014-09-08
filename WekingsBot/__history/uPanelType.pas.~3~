@@ -1,0 +1,9 @@
+unit uPanelType;
+interface
+var
+  PanelType:integer;
+implementation
+
+begin
+
+end.

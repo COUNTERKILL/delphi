@@ -1,0 +1,240 @@
+unit Unit2;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, sButton, sEdit,ShellApi,
+  sLabel, sCheckBox,winsock;
+
+function OpenPort(IP:string):boolean;
+function Ping(IP: String):string;
+type
+  TForm2 = class(TForm)
+    sButton1: TsButton;
+    sEdit1: TsEdit;
+    sButton2: TsButton;
+    sButton3: TsButton;
+    sLabel1: TsLabel;
+    sLabel2: TsLabel;
+    sLabel3: TsLabel;
+    sLabel4: TsLabel;
+    sLabel5: TsLabel;
+    sCheckBox1: TsCheckBox;
+    sButton4: TsButton;
+    sEdit2: TsEdit;
+    sLabel6: TsLabel;
+    procedure sEdit1Change(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure sButton3Click(Sender: TObject);
+    procedure sButton2Click(Sender: TObject);
+    procedure UpdateStateControl(State:boolean);
+    procedure sButton1Click(Sender: TObject);
+    procedure sButton4Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+  SunBk = record
+    s_b1, s_b2, s_b3, s_b4: integer;
+  end;
+var
+  Form2: TForm2;
+  SelectedComputer:integer;
+  Name,IP:string;
+  State:boolean;
+
+implementation
+
+{$R *.dfm}
+
+function OpenPort(IP:string):boolean;
+var
+  info:WSAData;
+  addr:TSockAddr;
+  Sock:TSocket;
+  AnsiIP:ansistring;
+  NonBlock,Block:integer;
+  wfds: Tfdset;
+  t: timeval;
+begin
+  NonBlock:=1;
+  Block:=0;
+  AnsiIP:=ansistring(IP);
+  Result:=true;
+  WSAStartup(MakeWord(2,2),info);
+  Sock:=socket(AF_INET,SOCK_STREAM,IPPROTO_IP);//первым параметром указываем стек TCP/IP, вторым потоковый протокол(есть дейтаграмный(нпр. UDP), третий параметр значит что используем протокол по умолчанию
+  if Sock=SOCKET_ERROR then
+  begin
+    MessageBox(0,PWideChar('Error Create socket'),PWideChar('Error'),0);
+    Result:=false;
+    exit;
+  end;
+  FD_ZERO(wfds);
+  FD_SET(Sock,wfds);
+  t.tv_sec := 0; //секунды
+  t.tv_usec := 30000; // миллисекунды
+  ioctlsocket(Sock, FIONBIO, NonBlock);
+  addr.sin_family:=AF_INET;
+  addr.sin_addr.S_addr:=inet_addr(PAnsiChar(AnsiIP));
+  addr.sin_port:=htons(3389);
+  connect(Sock,addr,SizeOf(addr));
+  if select(0, @wfds, @wfds, nil, @t) = 0 then
+    Result:=false;
+  ioctlsocket(Sock, FIONBIO, Block);//где Block:integer=0
+  closesocket(Sock);
+  WSACleanup;
+end;
+
+
+procedure TForm2.UpdateStateControl(State:boolean);
+begin
+  if State then
+  begin
+    sLabel5.Font.Color:=$00ff00;
+    sLabel5.Caption:='Online';
+    sButton3.Enabled:=true;
+    sButton4.Enabled:=true;
+    sButton1.Enabled:=true;
+    sCheckBox1.Enabled:=true;
+  end
+  else
+  begin
+    sLabel5.Font.Color:=$0000ff;
+    sLabel5.Caption:='Offline';
+    sButton3.Enabled:=false;
+    sButton4.Enabled:=false;
+    sButton1.Enabled:=false;
+    sCheckBox1.Enabled:=false;
+  end;
+end;
+
+
+function Ping(IP: String):string;
+const BUFSIZE = 2000;
+var SecAttr    : TSecurityAttributes;
+   hReadPipe,
+   hWritePipe : THandle;
+   StartupInfo: TStartUpInfo;
+   ProcessInfo: TProcessInformation;
+   Buffer     : PAnsichar;
+   WaitReason,
+   BytesRead  : DWord;
+begin
+  Result:='';
+  with SecAttr do
+  begin
+    nlength              := SizeOf(TSecurityAttributes);
+    binherithandle       := true;
+    lpsecuritydescriptor := nil;
+  end;
+  if Createpipe (hReadPipe, hWritePipe, @SecAttr, 0) then
+  begin
+    Buffer  := AllocMem(BUFSIZE + 1);
+    FillChar(StartupInfo, Sizeof(StartupInfo), #0);
+    StartupInfo.cb          := SizeOf(StartupInfo);
+    StartupInfo.hStdOutput  := hWritePipe;
+    StartupInfo.hStdInput   := hReadPipe;
+    StartupInfo.dwFlags     := STARTF_USESTDHANDLES +
+                               STARTF_USESHOWWINDOW;
+    StartupInfo.wShowWindow := SW_HIDE;
+    if CreateProcess(nil,
+       PChar('ping.exe '+IP),
+       @SecAttr,
+       @SecAttr,
+       true,
+       NORMAL_PRIORITY_CLASS,
+       nil,
+       nil,
+       StartupInfo,
+       ProcessInfo) then
+      begin
+        repeat
+          WaitReason := WaitForSingleObject( ProcessInfo.hProcess,100);
+          Application.ProcessMessages;
+        until (WaitReason <> WAIT_TIMEOUT);
+        Repeat
+          BytesRead := 0;
+          ReadFile(hReadPipe, Buffer[0], BUFSIZE, BytesRead, nil);
+          Buffer[BytesRead]:= #0;
+          OemToAnsi(Buffer,Buffer);
+          Result := Result + String(Buffer);
+        until (BytesRead < BUFSIZE);
+      end;
+    FreeMem(Buffer);
+    CloseHandle(ProcessInfo.hProcess);
+    CloseHandle(ProcessInfo.hThread);
+    CloseHandle(hReadPipe);
+    CloseHandle(hWritePipe);
+  end;
+end;
+
+
+procedure TForm2.FormShow(Sender: TObject);
+begin
+  sEdit1.Text:=Unit2.Name;
+  sLabel2.Caption:=Unit2.IP;
+  UpdateStateControl(State);
+end;
+
+
+
+procedure TForm2.sButton1Click(Sender: TObject);
+var
+  Force:string;
+begin
+  if sCheckBox1.Checked then
+    Force:='/f '
+  else
+    Force:='';
+  if State then
+    ShellExecute(Handle,PWideChar('open'),PWideChar('shutdown.exe'),PWideChar('/r /t'+sEdit2.Text+Force+'/m \\'+Unit2.Name),nil,SW_HIDE);
+end;
+
+procedure TForm2.sButton2Click(Sender: TObject);
+var
+  Res:string;
+begin
+  Res:=Ping(Unit2.Name+' -n 1 -4');
+  if (Pos('Обмен',Res)=0) or (Pos('получено = 0',Res)<>0) then
+  begin
+    State:=false;
+  end
+  else
+  begin
+    Res:=Copy(Res,Pos('[',Res)+1,Length(Res));
+    IP:=Copy(Res,1,Pos(']',Res)-1);
+    sLabel2.Caption:=Unit2.IP;
+    if OpenPort(IP) then
+      State:=true
+    else
+      State:=false;
+  end;
+  UpdateStateControl(State);
+end;
+
+procedure TForm2.sButton3Click(Sender: TObject);
+begin
+  if State then
+    ShellExecute(Handle,PWideChar('open'),PWideChar('mstsc.exe'),PWideChar('/v:'+Unit2.Name),nil,SW_SHOW);
+end;
+
+procedure TForm2.sButton4Click(Sender: TObject);
+var
+  Force:string;
+begin
+  if sCheckBox1.Checked then
+    Force:='/f '
+  else
+    Force:='';
+  if State then
+    ShellExecute(Handle,PWideChar('open'),PWideChar('shutdown.exe'),PWideChar('/s /t'+sEdit2.Text+Force+'/m \\'+Unit2.Name),nil,SW_HIDE);
+end;
+
+procedure TForm2.sEdit1Change(Sender: TObject);
+begin
+  Unit2.Name:=sEdit1.Text;
+end;
+
+end.

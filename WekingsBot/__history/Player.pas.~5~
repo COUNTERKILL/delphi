@@ -1,0 +1,31 @@
+unit Player;
+interface
+type
+  ////////  À¿—— œ»“ŒÃ÷¿ ////////////////////////
+  TPet = class
+    Param: record Sila,Zashita,Lovkost,Masterstvo,Zhivuchest:integer end;
+    Health,Sila,Zashita,Lovkost,Masterstvo,Zhivuchest:integer;
+    SilaCost,ZashitaCost,LovkostCost,MasterstvoCost,ZhivuchestCost:integer;
+    Status:integer; // 0 - ÌÂÚ, 1 - ‚ ÍÎÂÚÍÂ, 2 - Ì‡ Ò‚Ó·Ó‰Â
+    procedure GetTrainCost;
+    procedure GoToCell(inCell:boolean);
+  end;
+  /////////  À¿—— »√–Œ ¿ /////////////////////////////////////
+  TPlayer = class
+    Param: record Sila,Zashita,Lovkost,Masterstvo,Zhivuchest:integer end;
+    Health,Fights,Sera,Golds,Kris:integer;
+    SilaCost,ZashitaCost,LovkostCost,MasterstvoCost,ZhivuchestCost:integer;
+    Level:integer;
+    PohodIsset,ShahtaIsset:boolean;
+    Nagrab,Lost,NagrabKris,LostKris,NagrabGolds:integer;
+    Pet:TPet;
+    SvitkiTime:Cardinal;
+    procedure GetTrainCost;
+    constructor Create;
+  end;
+
+implementation
+
+begin
+
+end.

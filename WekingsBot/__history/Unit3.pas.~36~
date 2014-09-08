@@ -1,0 +1,111 @@
+unit Unit3;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, sGroupBox,
+  sLabel, sButton,uPanelType;
+
+type
+  TForm3 = class(TForm)
+    sGroupBox1: TsGroupBox;
+    sLabel1: TsLabel;
+    sLabel2: TsLabel;
+    sLabel3: TsLabel;
+    sLabel4: TsLabel;
+    sGroupBox2: TsGroupBox;
+    sLabel5: TsLabel;
+    sLabel6: TsLabel;
+    sLabel7: TsLabel;
+    sLabel8: TsLabel;
+    sGroupBox3: TsGroupBox;
+    sLabel9: TsLabel;
+    sLabel10: TsLabel;
+    sButton3: TsButton;
+    sButton1: TsButton;
+    sButton2: TsButton;
+    procedure FormMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure SetComponentsSize;
+    procedure FormCreate(Sender: TObject);
+    procedure sButton3Click(Sender: TObject);
+    procedure sButton1Click(Sender: TObject);
+    procedure sButton2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form3: TForm3;
+  Nagrab,Lost,NagrabKris,LostKris,NagrabGolds:integer;
+implementation
+
+{$R *.dfm}
+
+procedure TForm3.SetComponentsSize;
+var
+  i,FontSize:integer;
+  COOFF_MON:real;
+begin
+  COOFF_MON:=1/(Height/(Screen.Height*(Height/1080)));
+  if Screen.Height=768 then
+    COOFF_MON:=0.9;
+  ClientWidth:=Round(ClientWidth*COOFF_MON);
+  ClientHeight:=Round(ClientHeight*COOFF_MON);
+  FontSize:=Round(8*COOFF_MON);
+  for i :=0 to ComponentCount-1 do
+  begin
+    if Components[i] is TsGroupBox then
+    begin
+      (Components[i] as TsGroupBox).Height:=Round((Components[i] as TsGroupBox).Height*COOFF_MON);
+      (Components[i] as TsGroupBox).Width:=Round((Components[i] as TsGroupBox).Width*COOFF_MON);
+      (Components[i] as TsGroupBox).Top:=Round((Components[i] as TsGroupBox).Top*COOFF_MON);
+      (Components[i] as TsGroupBox).Left:=Round((Components[i] as TsGroupBox).Left*COOFF_MON);
+      (Components[i] as TsGroupBox).Font.Size:=FontSize;
+    end;
+    if Components[i] is TsLabel then
+    begin
+      (Components[i] as TsLabel).Height:=Round((Components[i] as TsLabel).Height*COOFF_MON);
+      (Components[i] as TsLabel).Width:=Round((Components[i] as TsLabel).Width*COOFF_MON);
+      (Components[i] as TsLabel).Top:=Round((Components[i] as TsLabel).Top*COOFF_MON);
+      (Components[i] as TsLabel).Left:=Round((Components[i] as TsLabel).Left*COOFF_MON);
+      (Components[i] as TsLabel).Font.Size:=FontSize;
+    end;
+  end;
+
+end;
+
+procedure TForm3.FormCreate(Sender: TObject);
+begin
+  SetComponentsSize;
+end;
+
+procedure TForm3.FormMouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+const  SC_DragMove = $F012;
+begin
+  ReleaseCapture;
+  Perform(WM_SYSCOMMAND, SC_DragMove, 0);
+  end;
+
+
+
+procedure TForm3.sButton1Click(Sender: TObject);
+begin
+  PanelType:=1;
+end;
+
+procedure TForm3.sButton2Click(Sender: TObject);
+begin
+  PanelType:=2;
+end;
+
+procedure TForm3.sButton3Click(Sender: TObject);
+begin
+  PanelType:=0;
+end;
+
+end.

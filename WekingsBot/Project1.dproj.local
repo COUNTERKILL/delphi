@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.527,=E:\programms\delphi\WekingsBot\Unit3.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.631,=E:\programms\delphi\WekingsBot\Unit3.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.199,=E:\programms\delphi\WekingsBot\Unit3.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.751,C:\Users\COUNTERKILL\Documents\RAD Studio\Projects\Project1.dproj=E:\programms\delphi\WekingsBot\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.598,C:\Users\COUNTERKILL\Documents\RAD Studio\Projects\Unit1.dfm=E:\programms\delphi\WekingsBot\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.579,C:\Users\COUNTERKILL\Documents\RAD Studio\Projects\Unit1.pas=E:\programms\delphi\WekingsBot\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.003,=E:\programms\delphi\WekingsBot\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.234,=E:\programms\delphi\WekingsBot\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.412,E:\programms\delphi\WekingsBot\Unit2.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.029,=C:\Users\COUNTERKILL\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.381,=C:\Users\COUNTERKILL\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

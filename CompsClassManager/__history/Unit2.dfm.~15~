@@ -1,0 +1,117 @@
+object Form2: TForm2
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu]
+  Caption = 'Manage Computer'
+  ClientHeight = 189
+  ClientWidth = 303
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object sLabel1: TsLabel
+    Left = 8
+    Top = 48
+    Width = 17
+    Height = 19
+    Caption = 'IP:'
+    ParentFont = False
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+  end
+  object sLabel2: TsLabel
+    Left = 72
+    Top = 48
+    Width = 60
+    Height = 19
+    Caption = '127.0.0.1'
+    ParentFont = False
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+  end
+  object sLabel3: TsLabel
+    Left = 8
+    Top = 15
+    Width = 40
+    Height = 19
+    Caption = 'Name:'
+    ParentFont = False
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+  end
+  object sButton1: TsButton
+    Left = 8
+    Top = 120
+    Width = 75
+    Height = 25
+    Caption = 'Restart'
+    TabOrder = 0
+    SkinData.SkinSection = 'BUTTON'
+  end
+  object sEdit1: TsEdit
+    Left = 72
+    Top = 15
+    Width = 177
+    Height = 26
+    AutoSize = False
+    Color = clWhite
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 1
+    OnChange = sEdit1Change
+    SkinData.SkinSection = 'EDIT'
+    BoundLabel.Indent = 0
+    BoundLabel.Font.Charset = DEFAULT_CHARSET
+    BoundLabel.Font.Color = clWindowText
+    BoundLabel.Font.Height = -11
+    BoundLabel.Font.Name = 'Tahoma'
+    BoundLabel.Font.Style = []
+    BoundLabel.Layout = sclLeft
+    BoundLabel.MaxWidth = 0
+    BoundLabel.UseSkinColor = True
+  end
+  object sButton2: TsButton
+    Left = 184
+    Top = 120
+    Width = 75
+    Height = 25
+    Caption = 'Update IP'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 2
+    SkinData.SkinSection = 'BUTTON'
+  end
+  object sButton3: TsButton
+    Left = 8
+    Top = 156
+    Width = 75
+    Height = 25
+    Caption = 'Start RDP'
+    TabOrder = 3
+    OnClick = sButton3Click
+    SkinData.SkinSection = 'BUTTON'
+  end
+end

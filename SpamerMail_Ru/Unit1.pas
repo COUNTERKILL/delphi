@@ -1,0 +1,154 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, IdBaseComponent,
+  IdComponent, IdTCPConnection, IdTCPClient, IdExplicitTLSClientServerBase,
+  IdMessageClient, IdSMTPBase, IdSMTP, IdIOHandler, IdIOHandlerSocket,
+  IdIOHandlerStack, IdSSL, IdSSLOpenSSL, idmessage, IdAntiFreezeBase,
+  Vcl.IdAntiFreeze, sSkinProvider, sSkinManager, sMemo, sLabel, sEdit, sGroupBox,
+  sButton, Vcl.ComCtrls, sStatusBar;
+
+type
+  TForm1 = class(TForm)
+    IdSMTP1: TIdSMTP;
+    IdSSLIOHandlerSocketOpenSSL1: TIdSSLIOHandlerSocketOpenSSL;
+    IdAntiFreeze1: TIdAntiFreeze;
+    sSkinManager1: TsSkinManager;
+    sGroupBox1: TsGroupBox;
+    sEditSubject: TsEdit;
+    sLabel1: TsLabel;
+    sMemoText: TsMemo;
+    sLabel2: TsLabel;
+    sButton1: TsButton;
+    sGroupBox2: TsGroupBox;
+    sMemoEmails: TsMemo;
+    sButton2: TsButton;
+    OpenDialog1: TOpenDialog;
+    sGroupBox3: TsGroupBox;
+    sStatusBar1: TsStatusBar;
+    sGroupBox4: TsGroupBox;
+    sMemoAccounts: TsMemo;
+    sButton3: TsButton;
+    sLabelAccount: TsLabel;
+    procedure Button1Click(Sender: TObject);
+    procedure sButton2Click(Sender: TObject);
+    procedure Authorize;
+    procedure sButton3Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+  accountId:integer;
+implementation
+
+{$R *.dfm}
+procedure TForm1.Authorize;
+var
+  s:string;
+begin
+  if sMemoAccounts.Lines.Count<accountId then
+  begin
+    inc(accountId);
+    exit;
+  end;
+  IdSMTP1.Disconnect;
+  IdSMTP1.Host:='smtp.mail.ru';
+  IdSMTP1.Port:=25;
+  s:=sMemoAccounts.Lines[accountId];
+  IdSMTP1.Username:=Copy(s, 1, Pos(';', s)-1);
+  sLabelAccount.Caption:='Аккаунт: ' + IdSMTP1.Username;
+  IdSMTP1.Password:=Copy(s,Pos(';', s)+1, Length(s));
+  IdSMTP1.Connect;
+  inc(accountId);
+end;
+procedure Delay(mSec:Cardinal);
+var
+ TargetTime:Cardinal;
+begin
+  TargetTime:=GetTickCount+mSec;
+  while TargetTime>GetTickCount do
+  begin
+    Application.ProcessMessages;
+    sleep(3);
+    if Application.Terminated then Exit;
+  end;
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  msg:TIdMessage;
+  i: Integer;
+begin
+  accountId:=0;
+  Authorize;
+  for i:=0 to sMemoEmails.Lines.Count-1 do
+  begin
+    sStatusBar1.Panels[0].Text:='Прогресс: '+IntToStr(i+1)+' из '+IntToStr(sMemoEmails.Lines.Count);
+    msg:=TIdMessage.Create(nil);
+    msg.ContentType:='text/html';
+    msg.CharSet:='windows-1251';
+    msg.Body:=sMemoText.Lines;
+    msg.Subject:=sEditSubject.Text;
+    msg.From.Address:=IdSMTP1.Username;
+    msg.From.Name:='Александр';
+    msg.Recipients.EMailAddresses:=sMemoEmails.Lines[i];
+    msg.IsEncoded:=True;
+    try
+    IdSMTP1.Send(msg);
+    except
+    on E : Exception do
+      if e.ClassName='EIdSMTPReplyError' then
+      begin
+        Authorize;
+        if sMemoAccounts.Lines.Count<accountId then
+        begin
+          ShowMessage('Аккаунты закончились! Введите новые аккаунты');
+          break;
+        end;
+      end
+      else
+      begin
+        ShowMessage(e.ClassName);
+        if e.ClassName='EIdReadTimeout' then
+        begin
+          Authorize;
+        end;
+      end;
+    end;
+    msg.Free;
+    sMemoEmails.Lines.Delete(i);
+    Delay(1000);
+  end;
+  sStatusBar1.Panels[0].Text:='';
+  IdSMTP1.Disconnect;
+end;
+
+
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  accountId:=0;
+  IdSMTP1.ReadTimeout:=10000;
+end;
+
+procedure TForm1.sButton2Click(Sender: TObject);
+begin
+  if OpenDialog1.Execute then
+    sMemoEmails.Lines.LoadFromFile(OpenDialog1.FileName);
+end;
+
+procedure TForm1.sButton3Click(Sender: TObject);
+begin
+  if OpenDialog1.Execute then
+    sMemoAccounts.Lines.LoadFromFile(OpenDialog1.FileName);
+end;
+
+end.

@@ -1,0 +1,434 @@
+unit Inet;
+
+interface
+uses ExtCtrls,Winsock2,windows;
+
+type
+  ///	<summary>
+  ///	  Массив палуб игрока
+  ///	</summary>
+  TBlocks = array[1..10, 1..10] of TImage;
+
+  ///	<summary>
+  ///	  Процедура создания блока промаха на поле игрока
+  ///	</summary>
+  TCrBM = procedure(X,Y:integer);
+
+{ Выстрел и принятие выстрела}
+
+///	<summary>
+///	  Принятие выстрела
+///	</summary>
+///	<param name="x">
+///	  Координата блока по X
+///	</param>
+///	<param name="y">
+///	  Координата блока по Y
+///	</param>
+///	<param name="Blocks">
+///	  Массив блоков игрока
+///	</param>
+///	<param name="SockServer">
+///	  Сокет сервера
+///	</param>
+///	<param name="CrBm">
+///	  Процедура создания блока промаха на поле игрока
+///	</param>
+function RecvFight(var x,y:integer; var Blocks:TBlocks;var SockServer:TSocket;
+  CrBm:TCrBM):ansichar;
+
+///	<summary>
+///	  Отправка выстрела
+///	</summary>
+///	<param name="x">
+///	  Координаты блока X
+///	</param>
+///	<param name="y">
+///	  Координата блока Y
+///	</param>
+///	<returns>
+///	  Результат выстрела
+///	</returns>
+function SendFight(x,y:integer):char;
+
+{ Отправка и принятие сообщения о расстановке всех кораблей}
+
+///	<summary>
+///	  отправка сообщения о том, что все корабли игрока расставлены
+///	</summary>
+procedure SendSeted;
+
+///	<summary>
+///	  Прием сообщения о том, что противник расставил все свои корабли
+///	</summary>
+///	<param name="SockServer">
+///	  Сокет сервера
+///	</param>
+procedure RecvSeted(var SockServer:TSocket);
+
+{ Принятие и отправка сообщения о новой игре}
+
+///	<summary>
+///	  Отправка сообщения о начале новой игры
+///	</summary>
+procedure SendNew;
+
+///	<summary>
+///	  Принятие сообщения о начале новой игры
+///	</summary>
+///	<param name="SockServer">
+///	  Сокет сервера
+///	</param>
+procedure RecvNewFirst(var SockServer:TSocket);
+
+var
+  ///	<summary>
+  ///	  IP противника
+  ///	</summary>
+  IP:SunB;
+
+implementation
+
+const
+  PortFrom = 3333;
+  PortTo = 3333;
+  MAX_CONNECTIONS = 1;
+var
+  info:WSAData;
+
+//==============================================================================
+{ Получение сообщения о том, что все корабли противника расставлены}
+
+procedure RecvSeted(var SockServer:TSocket);
+var
+  Sock:TSocket;
+  AddrServ,RemoteAddr:TSockAddrIn;
+  Res,SizeOfRemAddr:integer;
+  buf:ansichar;
+begin
+  SockServer:=socket(AF_INET,SOCK_STREAM,IPPROTO_IP);
+  if SockServer=INVALID_SOCKET then
+  begin
+    MessageBox(0,PWideChar('Ошибка'),PWideChar('Ошибка создания сокета'),MB_OK);
+    exit;
+  end;
+  AddrServ.sin_family:=AF_INET;
+  AddrServ.sin_port:=htons(PortFrom);
+  AddrServ.sin_addr.S_addr:=INADDR_ANY;
+  ZeroMemory(@(AddrServ.sin_zero),SizeOf(AddrServ.sin_zero));
+  Res:=bind(SockServer,TSockAddr(AddrServ),SizeOf(AddrServ));
+  if Res=SOCKET_ERROR then
+  begin
+    MessageBox(0,PWideChar('Ошибка'),PWideChar('Ошибка биндинга'),MB_OK);
+    exit;
+  end;
+  Res:=listen(SockServer,MAX_CONNECTIONS);
+  if Res=SOCKET_ERROR then
+  begin
+    MessageBox(0,PWideChar('Ошибка'),PWideChar('Ошибка прослушивания'),MB_OK);
+    exit;
+  end;
+  SizeOfRemAddr:=SizeOf(TSockAddrIn);
+  Sock:=accept(SockServer,@RemoteAddr,@SizeOfRemAddr);
+  if Sock=INVALID_SOCKET then
+  begin
+    MessageBox(0,PWideChar('Ошибка'),
+      PWideChar('Ошибка создания сокета клиента'),MB_OK);
+    exit;
+  end;
+  repeat
+    Res:=Recv(Sock,buf,SizeOf(buf),0);
+    if Res=SOCKET_ERROR then
+    begin
+      MessageBox(0,PWideChar('Ошибка'),PWideChar('Ошибка чтения данных'),MB_OK);
+      exit;
+    end;
+  until (buf='s') or (Res=0); // установлены корабли
+  closesocket(Sock);
+  closesocket(SockServer);
+end;
+
+//------------------------------------------------------------------------------
+{ Отправка сообщения о том, что все корабли игрока расставлены}
+
+procedure SendSeted;
+var
+  Sock:TSocket;
+  Addr:TSockAddrIn;
+  Res:integer;
+  buf:ansichar;
+begin
+  Sock:=socket(AF_INET,SOCK_STREAM,IPPROTO_IP);
+  if Sock=INVALID_SOCKET then
+  begin
+    MessageBox(0,PWideChar('Ошибка'),PWideChar('Ошибка создания сокета'),MB_OK);
+    exit;
+  end;
+  Addr.sin_family:=AF_INET;
+  Addr.sin_port:=htons(PortTo);
+  Addr.sin_addr.S_un_b:=IP;
+  ZeroMemory(@(Addr.sin_zero),SizeOf(Addr.sin_zero));
+  Res:=connect(Sock,TSockAddr(Addr),Sizeof(Addr));
+  if Res=SOCKET_ERROR then
+  begin
+    MessageBox(0,PWideChar('Ошибка'),PWideChar('Ошибка соединения'),MB_OK);
+    exit;
+  end;
+  buf:='s';
+  Res:=send(Sock,buf,SizeOf(buf),0);
+  if Res<1 then
+  begin
+    MessageBox(0,PWideChar('Ошибка'),
+      PWideChar('Ошибка отправки статуса'),MB_OK);
+    exit;
+  end;
+  closesocket(Sock);
+end;
+
+//==============================================================================
+{ Принятие сообщенияо начале новой игры}
+
+procedure RecvNewFirst(var SockServer:TSocket);
+var
+  Sock:TSocket;
+  AddrServ,RemoteAddr:TSockAddrIn;
+  Res,SizeOfRemAddr:integer;
+  buf:ansichar;
+begin
+  SockServer:=socket(AF_INET,SOCK_STREAM,IPPROTO_IP);
+  if SockServer=INVALID_SOCKET then
+  begin
+    MessageBox(0,PWideChar('Ошибка'),PWideChar('Ошибка создания сокета'),MB_OK);
+    exit;
+  end;
+  AddrServ.sin_family:=AF_INET;
+  AddrServ.sin_port:=htons(PortFrom);
+  AddrServ.sin_addr.S_addr:=INADDR_ANY;
+  ZeroMemory(@(AddrServ.sin_zero),SizeOf(AddrServ.sin_zero));
+  Res:=bind(SockServer,TSockAddr(AddrServ),SizeOf(AddrServ));
+  if Res=SOCKET_ERROR then
+  begin
+    MessageBox(0,PWideChar('Ошибка'),PWideChar('Ошибка биндинга'),MB_OK);
+    exit;
+  end;
+  Res:=listen(SockServer,MAX_CONNECTIONS);
+  if Res=SOCKET_ERROR then
+  begin
+    MessageBox(0,PWideChar('Ошибка'),PWideChar('Ошибка прослушивания'),MB_OK);
+    exit;
+  end;
+  SizeOfRemAddr:=SizeOf(TSockAddrIn);
+  Sock:=accept(SockServer,@RemoteAddr,@SizeOfRemAddr);
+  if Sock=INVALID_SOCKET then
+  begin
+    MessageBox(0,PWideChar('Ошибка'),
+      PWideChar('Ошибка создания сокета клиента'),MB_OK);
+    exit;
+  end;
+  repeat
+    Res:=Recv(Sock,buf,SizeOf(buf),0);
+    if Res=SOCKET_ERROR then
+    begin
+      MessageBox(0,PWideChar('Ошибка'),PWideChar('Ошибка чтения данных'),MB_OK);
+      exit;
+    end;
+  until (buf='n') or (Res=0); // установлены корабли
+  closesocket(Sock);
+  closesocket(SockServer);
+end;
+
+//------------------------------------------------------------------------------
+{ Отправка сообщения о начале новой игры}
+
+procedure SendNew;
+var
+  Sock:TSocket;
+  Addr:TSockAddrIn;
+  Res:integer;
+  buf:ansichar;
+begin
+  Sock:=socket(AF_INET,SOCK_STREAM,IPPROTO_IP);
+  if Sock=INVALID_SOCKET then
+  begin
+    MessageBox(0,PWideChar('Ошибка'),PWideChar('Ошибка создания сокета'),MB_OK);
+    exit;
+  end;
+  Addr.sin_family:=AF_INET;
+  Addr.sin_port:=htons(PortTo);
+  Addr.sin_addr.S_un_b:=IP;
+  ZeroMemory(@(Addr.sin_zero),SizeOf(Addr.sin_zero));
+  Res:=connect(Sock,TSockAddr(Addr),Sizeof(Addr));
+  if Res=SOCKET_ERROR then
+  begin
+    MessageBox(0,PWideChar('Ошибка'),PWideChar('Ошибка соединения'),MB_OK);
+    exit;
+  end;
+  buf:='n';
+  Res:=send(Sock,buf,SizeOf(buf),0);
+  if Res<1 then
+  begin
+    MessageBox(0,PWideChar('Ошибка'),
+      PWideChar('Ошибка отправки статуса'),MB_OK);
+    exit;
+  end;
+  closesocket(Sock);
+end;
+
+//==============================================================================
+{ Отправка выстрела}
+
+function SendFight(x,y:integer):char;
+var
+  Sock:TSocket;
+  Addr:TSockAddrIn;
+  Res:integer;
+  buf:array[0..1] of integer;
+  bufC:char;
+begin
+  Result:='0';
+  Sock:=socket(AF_INET,SOCK_STREAM,IPPROTO_IP);
+  if Sock=INVALID_SOCKET then
+  begin
+    MessageBox(0,PWideChar('Ошибка'),PWideChar('Ошибка создания сокета'),MB_OK);
+    exit;
+  end;
+  Addr.sin_family:=AF_INET;
+  Addr.sin_port:=htons(PortTo);
+  Addr.sin_addr.S_un_b:=IP;
+  ZeroMemory(@(Addr.sin_zero),SizeOf(Addr.sin_zero));
+  Res:=connect(Sock,TSockAddr(Addr),Sizeof(TSockAddrIn));
+  if Res=SOCKET_ERROR then
+  begin
+    MessageBox(0,PWideChar('Ошибка'),PWideChar('Ошибка соединения'),MB_OK);
+    exit;
+  end;
+  buf[0]:=X;
+  buf[1]:=Y;
+  Res:=send(Sock,buf,SizeOf(buf),0);
+  if Res<8 then
+  begin
+    MessageBox(0,PWideChar('Ошибка'),PWideChar('Ошибка отправки данных'),MB_OK);
+    exit;
+  end;
+  Res:=recv(Sock,bufC,1,0);
+  if Res<1 then
+  begin
+    MessageBox(0,PWideChar('Ошибка'),PWideChar('Ошибка приема статуса'),MB_OK);
+    exit;
+  end;
+  closesocket(Sock);
+  Result:=bufC;
+end;
+
+//------------------------------------------------------------------------------
+{ Принятие выстрела}
+
+function RecvFight(var x,y:integer; var Blocks:TBlocks;
+  var SockServer:TSocket;CrBm:TCrBM):ansichar;
+var
+  Sock:TSocket;
+  AddrServ,RemoteAddr:TSockAddrIn;
+  Res,SizeOfRemAddr,FullLen:integer;
+  buf:ansichar;
+  FullBuf:ansistring;
+  bX:^Integer;
+begin
+  Result:='0';
+  SockServer:=socket(AF_INET,SOCK_STREAM,IPPROTO_IP);
+  if SockServer=INVALID_SOCKET then
+  begin
+    MessageBox(0,PWideChar('Ошибка'),PWideChar('Ошибка создания сокета'),MB_OK);
+    exit;
+  end;
+  AddrServ.sin_family:=AF_INET;
+  AddrServ.sin_port:=htons(PortFrom);
+  AddrServ.sin_addr.S_addr:=INADDR_ANY;
+  ZeroMemory(@(AddrServ.sin_zero),SizeOf(AddrServ.sin_zero));
+  Res:=bind(SockServer,TSockAddr(AddrServ),SizeOf(AddrServ));
+  if Res=SOCKET_ERROR then
+  begin
+    MessageBox(0,PWideChar('Ошибка'),PWideChar('Ошибка биндинга'),MB_OK);
+    exit;
+  end;
+  Res:=listen(SockServer,MAX_CONNECTIONS);
+  if Res=SOCKET_ERROR then
+  begin
+    MessageBox(0,PWideChar('Ошибка'),PWideChar('Ошибка прослушивания'),MB_OK);
+    exit;
+  end;
+  SizeOfRemAddr:=SizeOf(TSockAddrIn);
+  Sock:=accept(SockServer,@RemoteAddr,@SizeOfRemAddr);
+  if Sock=INVALID_SOCKET then
+  begin
+    MessageBox(0,PWideChar('Ошибка'),
+      PWideChar('Ошибка создания сокета клиента'),MB_OK);
+    exit;
+  end;
+  FullLen:=0;
+  repeat
+    ZeroMemory(@buf,SizeOf(buf));
+    Res:=Recv(Sock,buf,SizeOf(buf),0);
+    if Res=SOCKET_ERROR then
+    begin
+      MessageBox(0,PWideChar('Ошибка'),PWideChar('Ошибка чтения данных'),MB_OK);
+      exit;
+    end;
+    FullLen:=FullLen+Res;
+    FullBuf:=FullBuf+buf;
+    if buf='n' then // противник запросил новую игру
+    begin
+      send(Sock,buf,1,0); // отправить сообщение, которое не будет обработано
+      closesocket(SockServer);
+      Result:=buf;
+      exit;
+    end;
+  until FullLen=8;
+  if Length(Fullbuf)<8 then
+  begin
+    MessageBox(0,PWideChar('Ошибка'),PWideChar('Ошибка приема данных'),MB_OK);
+    exit;
+  end;
+  bX:=@Fullbuf[1];
+  X:=bX^;
+  bX:=@Fullbuf[5];
+  Y:=bX^;
+  if Blocks[X,Y]=nil then
+  begin
+    buf:='m';     //мимо
+    CrBm(X,Y);
+  end
+  else
+  begin
+    if Blocks[X,Y].Tag=9 then
+      buf:='p';  // мимо, т.к. уже стрелял,но такого не будет, т.к. блок горения
+                 // корабля перекрывает позицию стрельбы. Оставлено для
+                 // совместимости| по идее, но на практике бывает, подогнать
+                 // размер картинки
+    if Blocks[X,Y].Tag=10 then
+    begin
+      buf:='p';  //попал
+      Blocks[X,Y].Picture.LoadFromFile('SheepFire.jpg');
+      Blocks[X,Y].Tag:=9;
+    end;
+  end;
+  Res:=send(Sock,buf,1,0);
+  if Res<1 then
+  begin
+    MessageBox(0,PWideChar('Ошибка'),
+      PWideChar('Ошибка отправки статуса'),MB_OK);
+    exit;
+  end;
+  Result:=buf;
+  closesocket(Sock);
+  closesocket(SockServer);
+end;
+
+//==============================================================================
+
+initialization
+  WSAStartup(MakeWord(2,0),info);
+
+finalization
+  WSACleanup;
+
+end.

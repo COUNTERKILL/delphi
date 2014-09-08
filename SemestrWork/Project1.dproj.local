@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.684,=E:\Programms\Delphi\SemestrWork\ModelSupport_Project1\Unit1\default.txaPackage</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.680,=E:\Programms\Delphi\SemestrWork\ModelSupport_Project1\Project1\default.txaPackage</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.017,=E:\Programms\Delphi\SemestrWork\ModelSupport_Project1\default.txvpck</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.155,=E:\Programms\Delphi\SemestrWork\ModelSupport_Project1\Unit1\default.txvpck</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.892,=E:\Programms\Delphi\SemestrWork\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.982,=E:\Programms\Delphi\SemestrWork\ModelSupport_Project1\default.txaPackage</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.399,E:\Programms\Delphi\SemestrWork\Project1.dproj=C:\Users\COUNTERKILL\Documents\RAD Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.643,E:\Programms\Delphi\SemestrWork\Unit1.dfm=C:\Users\COUNTERKILL\Documents\RAD Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.178,=E:\Programms\Delphi\SemestrWork\ModelSupport_Project1\Inet\default.txvpck</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.918,=C:\Users\COUNTERKILL\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.366,E:\Programms\Delphi\SemestrWork\Inet.pas=E:\Programms\Delphi\SemestrWork\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.082,=E:\Programms\Delphi\SemestrWork\ModelSupport_Project1\Project1\default.txvpck</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.643,E:\Programms\Delphi\SemestrWork\Unit1.pas=C:\Users\COUNTERKILL\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

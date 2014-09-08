@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.590,=C:\Users\COUNTERKILL\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.579,E:\Programms\Delphi\SpamerMail_Ru\Unit1.pas=C:\Users\COUNTERKILL\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.334,E:\Programms\Delphi\SpamerMail_Ru\Project1.dproj=C:\Users\COUNTERKILL\Documents\RAD Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.579,E:\Programms\Delphi\SpamerMail_Ru\Unit1.dfm=C:\Users\COUNTERKILL\Documents\RAD Studio\Projects\Unit1.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

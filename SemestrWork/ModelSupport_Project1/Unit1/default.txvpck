@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nodeSet version="1.0">
+  <view uin="apcempkzvpc0olz7n_v">
+    <property name="$defaultDiagram" value="true" />
+    <property name="$metaclass" value="Package Diagram" />
+    <property name="$name" value="default" />
+    <reference referencedUin="delphi:e_class:src:Project1:Unit1.TForm1">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TForm1.ImagePlayer" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TForm1.sSkinManager1" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TForm1.Image2" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TForm1.ImageEnemy" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TForm1.ImageBack" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TForm1.sComboBox1" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TForm1.sButton1" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TForm1.sStatusBar1" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TForm1.sLabel1" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TForm1.sEdit1" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TForm1.ImageLogo" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TForm1.Timer1" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TForm1.ImagePlayerClick(System.TObject)" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TForm1.FormCreate(System.TObject)" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TForm1.ImagePlayerMouseDown(System.TObject,System.UITypes.TMouseButton,TShiftState,System.Integer,System.Integer)" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TForm1.sButton1Click(System.TObject)" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TForm1.ImageEnemyClick(System.TObject)" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TForm1.sEdit1Change(System.TObject)" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TForm1.Timer1Timer(System.TObject)" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:Project1:Unit1.@unitclass">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="delphi:l_ast:src:Project1:Unit1.@unitclass.Form1" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.@unitclass.Form1" />
+      <reference referencedUin="delphi:l_ast:src:Project1:Unit1.@unitclass.BlocksE" />
+      <reference referencedUin="delphi:l_ast:src:Project1:Unit1.@unitclass.Blocks" />
+      <reference referencedUin="delphi:l_ast:src:Project1:Unit1.@unitclass.NewThr" />
+      <reference referencedUin="delphi:l_ast:src:Project1:Unit1.@unitclass.NotSetedThr" />
+      <reference referencedUin="delphi:l_ast:src:Project1:Unit1.@unitclass.RecvThr" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.@unitclass.Img" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.@unitclass.Blocks" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.@unitclass.BlocksE" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.@unitclass.Palub" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.@unitclass.MLeft" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.@unitclass.Seted" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.@unitclass.EnemySeted" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.@unitclass.Received" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.@unitclass.X" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.@unitclass.Y" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.@unitclass.RecvThr" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.@unitclass.NotSetedThr" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.@unitclass.SockServer" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.@unitclass.Hod" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.@unitclass.Pobeda" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.@unitclass.Proigrysh" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.@unitclass.Res" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.@unitclass.NewThr" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.@unitclass.FirstClick" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.@unitclass.ShouldStart" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.@unitclass.Clicked" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.@unitclass.ClickToEnemy" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.@unitclass.Field1" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.@unitclass.CreateBlock(System.Integer,System.Integer)" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.@unitclass.CreateBlockFightEnemy(System.Integer,System.Integer)" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.@unitclass.CreateBlockMimoEnemy(System.Integer,System.Integer)" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.@unitclass.CreateBlockMimo(System.Integer,System.Integer)" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.@unitclass.GetFightColls()" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.@unitclass.GetEnemyFightColls()" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.@unitclass.IsPlayerWin()" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.@unitclass.IsPlayerLost()" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.@unitclass.NewGame()" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.@unitclass.ReceiveNewGame()" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.@unitclass.SetIp(System.string)" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.@unitclass.IsIp(System.string)" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.@unitclass.BlocksIsFree(System.Integer,System.Integer,Unit1.TOrientation,System.Integer)" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.@unitclass.SetShip(System.Integer,System.Integer,Unit1.TOrientation,System.Integer)" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.@unitclass.GetCoords(ref@System.Integer,ref@System.Integer)" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.@unitclass.GetCoordsEnemy(ref@System.Integer,ref@System.Integer)" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:Project1:Unit1.TShip">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TShip.PosX" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TShip.PosY" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TShip.orientation" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:Project1:Unit1.TPlayer">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="delphi:l_ast:src:Project1:Unit1.TPlayer.Ships" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TPlayer.Ships" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:Project1:Unit1.TShips">
+      <property name="$shortcutReference" value="true" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:Project1:Unit1.TOrientation">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TOrientation.vertic" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TOrientation.horizont" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:Project1:Unit1.TBlocks">
+      <property name="$shortcutReference" value="true" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:Project1:Unit1.TNewThr">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TNewThr.Execute()" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TNewThr.NewGame()" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:Project1:Unit1.TSetedThr">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TSetedThr.Execute()" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TSetedThr.WriteEnemySeted()" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:Project1:Unit1.TRecvThr">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="delphi:l_ast:src:Project1:Unit1.TRecvThr.B" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TRecvThr.X" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TRecvThr.Y" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TRecvThr.B" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TRecvThr.Ret" />
+      <reference referencedUin="delphi:e_field:src:Project1:Unit1.TRecvThr.Executed" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TRecvThr.Execute()" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TRecvThr.WriteRes()" />
+      <reference referencedUin="delphi:e_method:src:Project1:Unit1.TRecvThr.ReadBlocks()" />
+    </reference>
+  </view>
+</nodeSet>

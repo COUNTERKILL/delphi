@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2014.02.18 00:56:29.956,=C:\Users\COUNTERKILL\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2014.02.18 01:50:14.302,E:\Programms\Delphi\NetBiosGet\Unit1.pas=C:\Users\COUNTERKILL\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2014.02.18 01:50:14.302,E:\Programms\Delphi\NetBiosGet\Unit1.dfm=C:\Users\COUNTERKILL\Documents\RAD Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2014.02.18 01:50:16.355,E:\Programms\Delphi\NetBiosGet\Project1.dproj=C:\Users\COUNTERKILL\Documents\RAD Studio\Projects\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
